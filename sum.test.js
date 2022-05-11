@@ -1,12 +1,22 @@
 const sum = require('./sum');
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1,2)).toBe(3);
-})
-
 test('the returned value should be a number', () => {
   expect(typeof (sum(1,2))).toBe('number');
 })
+
+describe("sum function", () => {
+  it.each([
+    [0, 0, 0],
+    [-1, -2, -3],
+    [1, 2, 3],
+    [99999, 99999, 199998],
+  ])(
+    `should return proper result when passed arguments are: %i, %i`,
+    (a, b, result) => {
+      expect(sum(a, b)).toEqual(result);
+    }
+  );
+});
 
 describe('exception test', () => {
   test('it should throw error if non-number', () => {
