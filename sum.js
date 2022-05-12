@@ -6,7 +6,7 @@ function sum(a, b) {
   } else if (Boolean(true) === a || Boolean(true) === b) {
     throw new NoBooleansError('This is a boolean! Use a number instead!')
     } else if (arguments.length < 1) {
-      throw new TooManyArgumentsError('Whoops! You are missing a number')
+      throw new NotEnoughArgumentsError('Whoops! You are missing a number')
     }
   } 
 

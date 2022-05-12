@@ -4,9 +4,6 @@ test('the returned value should be a number', () => {
   expect(typeof (sum(1,2))).toBe('number');
 })
 
-// test('adds 1 + 2 to equal 3', () => {
-//   expect(sum(1,2)).toBe(3);
-// })
 describe("sum function", () => {
   it.each([
     [0, 0, 0],
@@ -35,6 +32,29 @@ describe("sum function", () => {
   });
 });
 
+
+  test('it should throw error if missing a parameter', () => {
+
+   () => expect(sum(1, 2)).toThrowError(NotEnoughArguementsError)
+  
+});
+
+
+describe("exception test", () => {
+  it.each([
+    [true, 0, 'This is not a number!'],
+    [{}, -2, 'This is not a number!'],
+    [[], 2, 'This is not a number!'],
+  ])(
+    `should return proper result when passed arguments are: %i, %i`,
+    (a, b, result) => {
+      expect(sum(a, b)).toEqual(result);
+    }
+  );
+});
+
+
+
 // describe('object exception test', () => {
 //   test('it should throw error if string passed', () => {
 //     expect(() => sum({}, 2)).toThrowError('This is not a number!');
@@ -46,26 +66,3 @@ describe("sum function", () => {
 //     expect(() => sum([], 2)).toThrowError('This is not a number!');
 //   });
 // })
-
-
-  test('it should throw error if missing a parameter', () => {
-
-   () => expect(sum(1, 2)).toThrowError(NotEnoughArguementsError)
-  
-});
-
-
-// describe("exception test", () => {
-//   it.each([
-//     [true, 0, 'This is not a number!'],
-//     [{}, -2, 'This is not a number!'],
-//     [[], 2, 'This is not a number!'],
-//   ])(
-//     `should return proper result when passed arguments are: %i, %i`,
-//     (a, b, result) => {
-//       expect(sum(a, b)).toEqual(result);
-//     }
-//   );
-// });
-
-
