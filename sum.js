@@ -4,11 +4,14 @@ function sum(a, b) {
   } else if (String(true) === a || String(true) === b ) {
       throw new NoStringsError('This is a string! Use a number instead!')
   } else if (Boolean(true) === a || Boolean(true) === b) {
-    throw new NoBooleansError('This is a boolean! Use a number instead!')
-    } else if (arguments.length < 1) {
+      throw new NoBooleansError('This is a boolean! Use a number instead!')
+  } else if (arguments.length < 1) {
       throw new NotEnoughArgumentsError('Whoops! You are missing a number')
-    }
-  } 
+  } else {
+    console.log('end of conditionals')
+  }
+} 
+ 
 
 module.exports = sum
 
