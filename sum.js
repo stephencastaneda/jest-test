@@ -1,17 +1,7 @@
-function sum(a, b) {
-  if (Number.isInteger(a) || Number.isInteger(b)) {
-    return a + b
-  } else if (String(true) === a || String(true) === b ) {
-      throw new NoStringsError('This is a string! Use a number instead!')
-  } else if (Boolean(true) === a || Boolean(true) === b) {
-      throw new NoBooleansError('This is a boolean! Use a number instead!')
-  } else if (arguments.length < 1) {
-      throw new NotEnoughArgumentsError('Whoops! You are missing a number')
-  } else {
-    console.log('end of conditionals')
-  }
-} 
- 
+const isNumber = (n) => typeof n === 'number'
+const sum = (...args) => args.every(isNumber) ? args.reduce((total,n)=> total + n, 0): 0
+
+
 
 module.exports = sum
 
