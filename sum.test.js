@@ -6,11 +6,20 @@ describe("sum function", () => {
     expect(sum(2, 5)).toBe(7)
   })
 
-  it("is variadic", () => {
-    expect(sum(2, 5, 13, 47)).toBe(67)
+  it("if a string is passed, an error is thrown", () => {
+    expect(() => sum(1, 'test')).toThrowError('Give me a number! This is a string!')
   })
 
-  it("if any argument is not a number return 0", () => {
-    expect(sum(2, '')).toBe(0)
+  it("if a boolean is passed, an error is thrown", () => {
+    expect(() => sum(1, true)).toThrowError('Give me a number! This is a boolean!')
   })
+
+  it("if an object is passed, an error is thrown", () => {
+    expect(() => sum({}, 2)).toThrowError('Give me a number! This is an object!')
+  })
+
+  it("must pass at least two numbers", () => {
+    expect(() => sum(1)).toThrowError('You must pass two numbers')
+  })
+
 });
